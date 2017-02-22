@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Angular Todoapp</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+    .navbar {
+        border-radius: 0;
+    }
+    </style>
+</head>
+
+<body ng-app="todoapp">
+    <div class="container">
+    	<div ui-view>
+    		
+    	</div>
+    </div>
+    <!-- Login module -->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="src/modules/auth/index.js"></script>
+<script src="src/modules/auth/home.route.js"></script>
+<script src="src/modules/auth/login.route.js"></script>
+<script src="src/modules/auth/controller/login.controller.js"></script>
+<script src="app.js"></script>
+
+</html>
