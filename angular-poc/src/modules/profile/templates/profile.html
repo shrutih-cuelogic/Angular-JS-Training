@@ -1,0 +1,39 @@
+<!-- Good use of ng-repeat & ng-switch to edit profile data within a object-array. @DonRPage --> 
+   <div class="content-wrapper">
+      <h2>Angular Profile Editing</h2>
+          <div class="row logout" align="right">
+            <label> <a ng-click="logout()">Logout </a></label>
+         </div>
+         <div class="table-responsive" id="side">
+          <table class="table-bordered table-condensed" style="margin-right:30px;">
+              <thead>
+                  <tr>
+                      <th style="width:50px"></th>
+                      <th class="id" style="width:200px">ID</th>
+                      <th class="firstname" style="width:200px">Firstname</th>
+                      <th class="lastname" style="width:200px">Lastname</th>
+                      <th class="username" style="width:200px">Username</th>
+                      <th class="gender" style="width:200px">Gender</th>
+                      <th class="address" style="width:200px">Address </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat="item in employees | orderBy:sortrecords " ng-class="{true: 'red', false: 'green'}[employee.isDelete]" employee-select >
+                   <td><input type="checkbox" ng-model="employee.isDelete"/>{{$index}}</td> 
+                      <td style="width:200px" ng-dblclick="editEmployeeRedirect(item.id)">{{ item.id }}</td>
+                      <td style="width:200px" ng-model="item.firstname">{{ item.firstname }}</td>
+                      <td style="width:200px" ng-model="item.lastname">{{ item.lastname }}</td>
+                      <td style="width:200px" ng-model="item.username">{{ item.username }}</td>
+                      <td style="width:200px" ng-model="item.gender">{{ item.gender }}</td>
+                      <td style="width:200px" ng-model="item.address">{{ item.address }}</td>
+                      <td style="width:100px">
+                          <a href="#" class="btn btn-info btn-sm">
+                              <span class="glyphicon glyphicon-trash"></span> Delete
+                          </a>
+                          <custom-action action-click="deleteEmployee" action-click-args="{{item.username}}" ></custom-action>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+   </div>

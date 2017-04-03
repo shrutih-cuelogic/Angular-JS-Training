@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoapp">
 
 <head>
     <title>Angular Todoapp</title>
@@ -10,9 +10,10 @@
         border-radius: 0;
     }
     </style>
+    <link rel="stylesheet" href="app.css">
 </head>
 
-<body ng-app="todoapp">
+<body>
     <div class="container">
     	<div ui-view>
     		
@@ -22,10 +23,30 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+
+<!-- Common files to be loaded here-->
+<script src="src/components/services/index.js"></script>
+<script src="src/components/services/localStorage.js"></script>
+<script src="src/components/services/interceptorService.js"></script>
+<script src="src/components/services/profile.js"></script>
+<script src="src/components/services/login.js"></script>
+
+<!-- Module files to be loaded here-->
 <script src="src/modules/auth/index.js"></script>
-<script src="src/modules/auth/home.route.js"></script>
-<script src="src/modules/auth/login.route.js"></script>
-<script src="src/modules/auth/controller/login.controller.js"></script>
+<script src="src/modules/auth/routes.js"></script>
+<script src="src/modules/auth/controllers/login.controller.js"></script>
+<script src="src/modules/auth/controllers/registration.controller.js"></script>
+
+
+<script src="src/modules/profile/index.js"></script>
+<script src="src/modules/profile/routes.js"></script>
+<script src="src/modules/profile/controllers/profile.controller.js"></script>
+
+
+<!-- <script src="src/modules/auth/controllers/home.controller.js"></script>
+ -->
+
 <script src="app.js"></script>
 
 </html>

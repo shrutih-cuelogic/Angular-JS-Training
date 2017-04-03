@@ -1,18 +1,22 @@
-angular.module('auth', [])
-    .controller('loginCtrl', ['$scope', LoginCntrl])
+angular.module('auth')
+    .controller('loginCtrl', ['$scope', '$location', '$rootScope', 'serverLocalStorageService', 'loginService', LoginCntrl])
 
-function LoginCntrl($scope) {
-    // $scope.error = "";
+function LoginCntrl($scope, $location, $rootScope, serverLocalStorageService, loginService) {
+    $scope.error = "";
 
-    $scope.login = function() {
-        $scope.user = {
-            email: "shruti@gmail.com",
-            password: "1234"
-        };
-        if ($scope.email == user.email && $scope.password == user.password) {
-            alert("Succesfully login");
-        } else {
-            alert("Username and Password is wrong");
-        }
-    }
+    $scope.validateLogin = function() {
+        loginService.validateLogin($scope.username, $scope.password)
+            .then(function(response) {
+                if (serverLocalStorageService.isSupported) {
+                    serverLocalStorageService.set('tokenid', $scope.username);
+                    $location.path('/profile');
+                    $rootScope.username = $scope.username;
+                } else {
+                    $scope.error = "Local storage not supported.";
+                }
+            }, function(rejected) {
+                $scope.error = "Invalid username/password";
+            })
+    };
 };
+

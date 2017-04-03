@@ -1,1 +1,1 @@
-angular.module('auth',['ui.router']);
+angular.module('auth', []);

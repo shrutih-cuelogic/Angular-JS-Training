@@ -1,0 +1,1 @@
+angular.module('services',['localStorage.service', 'interceptor.service', 'login.service', 'profile.service']);
