@@ -11,7 +11,8 @@ function profileService($rootScope, $location) {
         'lastname': 'Bavi',
         'password': 'deepali',
         'gender': 'female',
-        'address': 'KP road,Pune'
+        'address': 'KP road,Pune',
+        'emp_img': "http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"
     }, {
         'id': 2,
         'username': 'shruti.hiremath',
@@ -19,7 +20,8 @@ function profileService($rootScope, $location) {
         'firstname': 'shruti',
         'lastname': 'Hiremath',
         'gender': 'female',
-        'address': 'Sinhgad road,Pune'
+        'address': 'Sinhgad road,Pune',
+        'emp_img': "http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"
     }, {
         'id': 3,
         'username': 'shweta.hiremath',
@@ -27,7 +29,8 @@ function profileService($rootScope, $location) {
         'firstname': 'Shweta',
         'lastname': 'Hiremath',
         'gender': 'female',
-        'address': 'Aundh road,Pune'
+        'address': 'Aundh road,Pune',
+        'emp_img': "http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"
     }, {
         'id': 4,
         'username': 'tushar.mate',
@@ -35,45 +38,24 @@ function profileService($rootScope, $location) {
         'firstname': 'Tushar',
         'lastname': 'Mate',
         'gender': 'male',
-        'address': 'Paud road,Pune'
+        'address': 'Paud road,Pune',
+        'emp_img': "http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"
     }, ]
 
     function getEmp() {
         return employee_records;
     }
 
-    // function deleteEmployee(username) {
+    // function deleteProfile(index) {
     //     for (var i = 0; i < employee_records.length; i++) {
-    //         if (employee_records[i]["username"] == username) {
-    //             employee_records.splice(employee_records.indexOf(employee_records[i]), 1);
-    //             break;
+    //         employee_records.splice(employee_records.indexOf(employee_records[i]), 1);
+    //         break;
     //         }
     //     }
     //     return employee_records;
     // }
 
-    // function addEmployee(id, name, username, address) {
-    //     var new_employee = {};
-    //     flag = 0;
-    //     for (var i = 0; i < employee_records.length; i++) {
-    //         if (employee_records[i].id == id) {
-    //             flag = 1;
-    //             break;
-    //         }
-    //     }
-    //     if (flag == 0) {
-    //         new_employee.id = parseInt(id);
-    //         new_employee.gender = name;
-    //         new_employee.username = username;
-    //         new_employee.address = address;
-    //         employee_records.push(new_employee);
-    //     } else {
-    //         alert("This id already exists..!!!")
-    //     }
-    // }
-
     service.getEmp = getEmp;
-    // service.deleteEmployee = deleteEmployee;
-    // service.addEmployee = addEmployee;
+    // service.deleteProfile = deleteProfile;
     return service
 };

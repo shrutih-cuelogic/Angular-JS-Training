@@ -9,29 +9,52 @@
               <thead>
                   <tr>
                       <th style="width:50px"></th>
-                      <th class="id" style="width:200px">ID</th>
-                      <th class="firstname" style="width:200px">Firstname</th>
-                      <th class="lastname" style="width:200px">Lastname</th>
-                      <th class="username" style="width:200px">Username</th>
-                      <th class="gender" style="width:200px">Gender</th>
-                      <th class="address" style="width:200px">Address </th>
+                      <th class="id" style="width:150px">ID</th>
+                      <th class="firstname" style="width:150px">Firstname</th>
+                      <th class="lastname" style="width:150px">Lastname</th>
+                      <th class="username" style="width:150px">Username</th>
+                      <th class="gender" style="width:150px">Gender</th>
+                      <th class="address" style="width:150px">Address </th>
                   </tr>
               </thead>
               <tbody>
-                  <tr ng-repeat="item in employees | orderBy:sortrecords " ng-class="{true: 'red', false: 'green'}[employee.isDelete]" employee-select >
-                   <td><input type="checkbox" ng-model="employee.isDelete"/>{{$index}}</td> 
-                      <td style="width:200px" ng-dblclick="editEmployeeRedirect(item.id)">{{ item.id }}</td>
-                      <td style="width:200px" ng-model="item.firstname">{{ item.firstname }}</td>
-                      <td style="width:200px" ng-model="item.lastname">{{ item.lastname }}</td>
-                      <td style="width:200px" ng-model="item.username">{{ item.username }}</td>
-                      <td style="width:200px" ng-model="item.gender">{{ item.gender }}</td>
-                      <td style="width:200px" ng-model="item.address">{{ item.address }}</td>
-                      <td style="width:100px">
-                          <a href="#" class="btn btn-info btn-sm">
-                              <span class="glyphicon glyphicon-trash"></span> Delete
-                          </a>
-                          <custom-action action-click="deleteEmployee" action-click-args="{{item.username}}" ></custom-action>
-                      </td>
+                  <tr ng-repeat="item in employees">
+                    <td>
+                    <div class="img-wrapper clearfix">
+                      <img style="width:100px" ng-src="{{item.emp_img}}" ng-required>
+                    </div>
+                    </td>  
+
+                    <td>
+                      <span ng-hide="editMode">{{ item.firstname }}</span>
+                      <input type="text" ng-show="editMode" ng-model="item.firstname" ng-required />
+                    </td>
+                      <td>
+                      <span ng-hide="editMode">{{ item.lastname }}</span>
+                      <input type="text" ng-show="editMode" ng-model="item.lastname" ng-required />
+                    </td>
+                    </td>
+                      <td>
+                      <span ng-hide="editMode">{{ item.username }}</span>
+                      <input type="text" ng-show="editMode" ng-model="item.username" ng-required />
+                    </td>
+                    </td>
+                      <td>
+                      <span ng-hide="editMode">{{ item.gender }}</span>
+                      <input type="text" ng-show="editMode" ng-model="item.gender" ng-required />
+                    </td>
+                    </td>
+                      <td>
+                      <span ng-hide="editMode">{{ item.address }}</span>
+                      <input type="text" ng-show="editMode" ng-model="item.address" ng-required />
+                    </td>
+                    <td style="width:100px">
+                        <button type="submit" ng-hide="editMode" ng-click="editMode = true; editProfile(item)" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span>Edit</button>
+                        <button type="submit" ng-show="editMode" ng-click="editMode = false" class="btn btn-default"><span class="glyphicon glyphicon-save"></span>Save</button>
+                        <button type="submit" ng-show="editMode" ng-click="editMode = false; cancel()" class="btn btn-default"><span class="glyphicon glyphicon-cancel"></span>Cancel</button>
+
+                        <button type="submit" ng-click="deleteProfile($index)" class="btn btn-info"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+                    </td>
                   </tr>
               </tbody>
           </table>
